@@ -9,7 +9,7 @@ import Header from './Components/Header/Header.jsx'
 import Footer from './Components/Footer/Footer.jsx'
 import Home from './Pages/home/home.jsx'
 import Details from './Pages/details/details.jsx'
-import SearchResults from './Pages/searchResults/searchResults.jsx'
+import SearchResults from './Pages/searchResults/searchresults.jsx'
 import Explore from './Pages/explore/explore.jsx'
 import PagenotFound from './Pages/404/pagenotFound.jsx'
 
