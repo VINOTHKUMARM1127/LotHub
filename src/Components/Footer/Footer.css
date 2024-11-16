@@ -41,20 +41,26 @@
     text-align: center;
     opacity: .8;
 }
-.links a{
+
+.links a {
+    font-size: 1em;
     margin: 0px 1.5em;
     padding: 0px;
 }
 
-.links a :hover{
+.links a :hover {
     color: rgb(255, 0, 43);
 }
 
 
 @media (max-width: 768px) {
     .info {
+        font-size: .9em;
         max-width: 90%;
-        text-align: justify;
     }
 
+    .links a {
+        font-size: .8em;
+        margin: 0px 1rem;
+    }
 }
