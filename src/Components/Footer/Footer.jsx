@@ -23,7 +23,6 @@ const Footer = () => {
           explore a world of entertainment without borders. Movix offers personalized
           recommendations in a user-friendly interface, making every click a gateway
           to a tailored cinematic experience.</li>
-        <li>dfhdf</li>
       </div>
       <div className="socialIcons">
         <span className="icon">
