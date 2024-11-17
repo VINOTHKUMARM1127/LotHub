@@ -129,11 +129,10 @@
         font-size: .9em;
         padding: .3em .4em 1em .4em;
     }
-    .skeletonImage {
-        width: 100%;
-        max-height: 150px;
-        background-color: rgba(200, 200, 200, 0.15);
-        border-radius: 12px;
-        animation: shimmer 1.5s infinite;
+    .Title{
+        font-size: 1.4em;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 3px;
     }
 }
