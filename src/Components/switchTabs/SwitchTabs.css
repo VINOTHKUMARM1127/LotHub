@@ -1,0 +1,23 @@
+.switchTabs{
+    background-color: white;
+    padding: 3px ;
+    border-radius: 2em;
+}
+.tabButton {
+    color: black;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0px;
+    font-size: 1em;
+    font-weight: 100;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tabButton.active {
+    border-radius: 2em;
+    background: linear-gradient(to right, #f89e00, #da2f68);
+    color: white;
+}
+

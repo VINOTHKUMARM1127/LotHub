@@ -1,0 +1,139 @@
+:root {
+    --primary-color: rgba(255, 255, 255, 0.884);
+    --secondary-color: hsla(0, 0%, 0%, 0.904);
+    --bar-white: rgba(121, 142, 212, 0.884);
+}
+/* trending.css */
+.box{
+    margin: 0px auto;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px ;
+}
+.Title{
+    font-size: 1.8em;
+    margin-top: 5px;
+}
+/* card */
+.card{
+    width: 87%;
+    margin: 0px auto;
+}
+.list {
+    max-height: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+}
+
+.news {
+    min-width: 220px;
+    align-items: center;
+}
+.content{
+    text-align: center;
+}
+.title-text {
+    font-weight: 200;
+    font-size: 1.1em;
+    padding: 10px 5px 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+}
+
+
+.date {
+    color: rgba(255, 255, 255, 0.544);
+    font-size: 0.9rem;
+    margin: 9px 5px ;
+}
+.image {
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+    z-index: 1;
+}
+.btn{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    height: 1em;
+}
+.back{
+    left:30px;
+}
+.next{
+    right: 30px;
+    transform: rotate(180deg);
+}
+.but{
+    position: relative;
+    top: 9em;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10em;
+    z-index: 10;
+}
+.btn:hover{
+    color: white;
+    background-color: rgba(2, 2, 2, 0.67);
+    border-radius: 50%;
+}
+@media (max-width:820px) {
+    .box{
+        width: 90%;
+        margin-bottom: 20px ;
+    }
+    .Title{
+        font-size: 1.8em;
+        margin-top: 5px;
+    }
+    .card{
+        width: 100%;
+    }
+    .list {
+        margin: 0px;
+        width: 100%;
+        padding: 0px 1.5em;
+    }
+    .news {
+        min-width: 8em;
+    }
+    .title-text {
+        padding: 10px 15px 0px 15px;
+    }
+    
+    .date {
+        padding: 10px 15px 20px 15px;
+    }
+    .but{
+        display: none;
+    }
+}
+
+@media (max-width:420px) {
+    .list {
+        margin: 0px;
+        
+    }
+    .title-text {
+        font-size: 1em;
+        padding: .5em .4em 0em .4em;
+    }
+    
+    .date {
+        font-size: .9em;
+        padding: .3em .4em 1em .4em;
+    }
+    .skeletonImage {
+        width: 100%;
+        max-height: 150px;
+        background-color: rgba(200, 200, 200, 0.15);
+        border-radius: 12px;
+        animation: shimmer 1.5s infinite;
+    }
+}

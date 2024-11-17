@@ -39,16 +39,13 @@ a:hover {
     padding: 0px 20px;
 }
 
-nav.top {
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
+.icon{
+    font-size: 1.3em;
+    padding: 0px;
+    margin: 0px 5px;
 }
-nav.show {
-    background-color: var(--black3);
-}
-nav.hide {
-    transform: translateY(-60px);
+.search-menu {
+    margin-right: 1.5em;
 }
 @media (max-width: 768px) {
     nav {

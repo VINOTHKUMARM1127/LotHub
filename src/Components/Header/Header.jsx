@@ -20,14 +20,14 @@ const Header = () => {
       <div className="MenuItems">
         <li className="MenuItem">MOVIES</li>
         <li className="MenuItem">TV SHOWS</li>
-        <li className="MenuItem"><HiOutlineSearch /></li>
+        <li className="MenuItem"><HiOutlineSearch className="icon search-menu"/></li>
       </div>
       <div className="mobileMenuItems ">
-        <HiOutlineSearch />
+        <HiOutlineSearch className="icon search-menu"/>
         {mobileMenu ? 
-          <VscChromeClose onClick={toggleMobileMenu}/>
+          <VscChromeClose className="icon close-menu" onClick={toggleMobileMenu}/>
          : 
-          <SlMenu onClick={toggleMobileMenu}/>}
+          <SlMenu className="icon open-menu" onClick={toggleMobileMenu}/>}
         
       </div>
       {mobileMenu && (

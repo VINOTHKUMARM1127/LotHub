@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import './heroBanner.css'
-
 import FetchData from '../../../FetchData/FetchData'
-
-import Img from '../../../Components/LazyLoadImage/img'
-import ContentWrapper from '../../../Components/contentWrapper/ContentWrapper'
 
 const heroBanner = () => {
   const [background, setBackground] = useState("")
   const [query, setQuery] = useState("")
   const navigate = useNavigate()
-  const { url } = useSelector((state) => state.home)
-  const { data, loading } = FetchData("/movie/upcoming")
+  const { data, loading } = FetchData("/trending/movie/week")
 
   useEffect(() => {
-    const bg = url.backdrop + (data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path || data?.results?.[Math.floor(Math.random() * 20)]?.poster_path);
-
+    const bg = "https://image.tmdb.org/t/p/original" + (data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path )
     setBackground(bg)
   }, [data])
 
-  const searchQueryHandler = (event) => {
+  const searchBut = (event) => {
+    if (query.length > 0) {
+      navigate(`/search/${query}`)
+    }
+  }
+  const searchQuery = (event) => {
     if (event.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`)
     }
@@ -30,12 +28,12 @@ const heroBanner = () => {
   return (
     <div className="heroBanner">
       {!loading && (<div className="backdrop-img">
-        <Img src={background} />
+        <img className='bg-img' src={background} />
       </div>
       )}
 
     <div className="opacity-layer"></div>
-      <ContentWrapper>
+      
           <div className="heroBannerContent">
             <span className="title">Welcome</span>
             <span className="subTitle">Millions of movies, TV shows and people to discover.
@@ -43,11 +41,11 @@ const heroBanner = () => {
           <div className="searchInput">
             <input type="text" placeholder='Search for a Movie or TV show'
               onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={searchQueryHandler} />
-            <button>Search</button>
+              onKeyUp={searchQuery} />
+            <button className='search-but' onClick={searchBut}>Search</button>
           </div>
         </div>
-      </ContentWrapper>
+      
     </div>
   )
 }
