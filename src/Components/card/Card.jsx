@@ -1,9 +1,11 @@
 import { useRef } from "react";
 import "./Card.css";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
-const Card = ({ data, loading }) => {
+const Card = ({ data, loading, endpoint }) => {
   const listRef = useRef(null);
+  const navigate = useNavigate();
 
   const imgUrl = "https://image.tmdb.org/t/p/original";
 
@@ -21,6 +23,10 @@ const Card = ({ data, loading }) => {
       left: 480,
       behavior: "smooth",
     });
+  };
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
   return (
@@ -46,7 +52,8 @@ const Card = ({ data, loading }) => {
               ? ""
               : data.map((curItem) => {
                 return (
-                  <div className="news" key={curItem.id}>
+                  <div className="news" key={curItem.id} 
+                  onClick={() => navigate(`/${curItem.media_type || endpoint}/${curItem.id}`)}>
                     <div className="posterBlock">
                       <img
                         className="image"
@@ -59,8 +66,11 @@ const Card = ({ data, loading }) => {
                         {curItem.name || curItem.title}
                       </h5>
                       <p className="date">
-                        {curItem.release_date || curItem.first_air_date}
+                        {curItem.release_date
+                          ? formatDate(curItem.release_date)
+                          : formatDate(curItem.first_air_date)}
                       </p>
+
                     </div>
                   </div>
                 );
