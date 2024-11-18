@@ -18,7 +18,7 @@ const Trending = () => {
         <div className="carouselSection">
             <div className="box">
                 <span className="Title">Trending</span>
-                <SwitchTabs data={["Day", "Week"]} onTabChange={onTabChange} />
+                <SwitchTabs data={["Day","Week"]} onTabChange={onTabChange} />
             </div>
             <Card data={data?.results} loading={loading} />
         </div>

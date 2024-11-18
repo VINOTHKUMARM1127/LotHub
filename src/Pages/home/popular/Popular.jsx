@@ -20,7 +20,7 @@ const Popular = () => {
                 <span className="Title">Popular</span>
                 <SwitchTabs data={["Movie", "Tv Shows"]} onTabChange={onTabChange} />
             </div>
-            <Card data={data?.results} loading={loading} />
+            <Card data={data?.results} loading={loading} endpoint={endpoint}/>
         </div>
     );
 };

@@ -8,7 +8,6 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 const Card = ({ data, loading, endpoint }) => {
   const listRef = useRef(null);
   const navigate = useNavigate();
-
   const imgUrl = "https://image.tmdb.org/t/p/original";
 
   const scrollLeft = () => {
@@ -89,3 +88,4 @@ const Card = ({ data, loading, endpoint }) => {
 };
 
 export default Card;
+ 
