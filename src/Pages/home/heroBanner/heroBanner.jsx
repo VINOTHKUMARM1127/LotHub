@@ -10,7 +10,7 @@ const heroBanner = () => {
   const { data, loading } = FetchData("/trending/movie/week")
 
   useEffect(() => {
-    const bg = "https://image.tmdb.org/t/p/original" + (data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path )
+    const bg = "https://image.tmdb.org/t/p/original" + (data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path)
     setBackground(bg)
   }, [data])
 
@@ -32,20 +32,20 @@ const heroBanner = () => {
       </div>
       )}
 
-    <div className="opacity-layer"></div>
-      
-          <div className="heroBannerContent">
-            <span className="title">Welcome</span>
-            <span className="subTitle">Millions of movies, TV shows and people to discover.
-              Explore now</span>
-          <div className="searchInput">
-            <input type="text" placeholder='Search for a Movie or TV show'
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={searchQuery} />
-            <button className='search-but' onClick={searchBut}>Search</button>
-          </div>
+      <div className="opacity-layer"></div>
+
+      <div className="heroBannerContent">
+        <span className="title">Welcome</span>
+        <span className="subTitle">Millions of movies, TV shows and people to discover.
+          Explore now</span>
+        <div className="searchInput">
+          <input type="text" className='input-box' placeholder='Search for a Movie or TV show'
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyUp={searchQuery} />
+          <button className='search-but' onClick={searchBut}>Search</button>
         </div>
-      
+      </div>
+
     </div>
   )
 }
