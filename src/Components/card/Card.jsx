@@ -2,6 +2,8 @@ import { useRef } from "react";
 import "./Card.css";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Card = ({ data, loading, endpoint }) => {
   const listRef = useRef(null);
@@ -28,6 +30,10 @@ const Card = ({ data, loading, endpoint }) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
+  const Loader = ({ src, className = "" }) => (
+    <LazyLoadImage className={className} alt="" effect="blur" src={src} />
+);
+
 
   return (
     <>
@@ -55,7 +61,7 @@ const Card = ({ data, loading, endpoint }) => {
                   <div className="news" key={curItem.id} 
                   onClick={() => navigate(`/${curItem.media_type || endpoint}/${curItem.id}`)}>
                     <div className="posterBlock">
-                      <img
+                      <Loader
                         className="image"
                         src={imgUrl + curItem.poster_path}
                         alt=""
