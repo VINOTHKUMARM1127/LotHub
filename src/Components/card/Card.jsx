@@ -29,6 +29,7 @@ const Card = ({ data, loading, endpoint }) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
+  
   const Loader = ({ src, className = "" }) => (
     <LazyLoadImage className={className} alt="" effect="blur" src={src} />
 );

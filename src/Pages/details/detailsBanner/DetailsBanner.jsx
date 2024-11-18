@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import "./DetailsBanner.css";
 
 import FetchData from "../../../FetchData/FetchData.jsx";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
-const DetailsBanner = ({ video, crew }) => {
+const DetailsBanner = () => {
 
     const { mediatype, id } = useParams();
     const { data, loading } = FetchData(`/${mediatype}/${id}`);
-    console.log(data)
     const imgUrl = "https://image.tmdb.org/t/p/original";
     const formatDate = (dateString) => {
         const options = { year: "numeric", month: "short", day: "numeric" };
@@ -21,6 +21,9 @@ const DetailsBanner = ({ video, crew }) => {
         const minutes = totalMinutes % 60;
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
+    const Loader = ({ src, className = "" }) => (
+        <LazyLoadImage className={className} alt="" effect="blur" src={src} />
+    );
     return (
         <div className="detailsBanner">
             {loading ? "loading" : (
@@ -29,7 +32,7 @@ const DetailsBanner = ({ video, crew }) => {
                         <>
                             <div className="details">
                                 <div className="left">
-                                    <img className="posterImg" src={imgUrl + data.poster_path} />
+                                    <LazyLoadImage className="posterImg" src={imgUrl + data.poster_path} />
                                 </div>
 
                                 <div className="right">
@@ -41,9 +44,9 @@ const DetailsBanner = ({ video, crew }) => {
                                         {data.tagline}
                                     </div>
                                     <div className="genres">
-                                        {data.genres.map((item) =>{
+                                        {data.genres.map((item,key) =>{
                                             return(
-                                            <div className="genre">
+                                            <div className="genre" key={(key)}>
                                                 {item.name}
                                             </div>)
                                         })}
