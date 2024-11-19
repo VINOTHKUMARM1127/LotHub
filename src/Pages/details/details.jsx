@@ -1,8 +1,6 @@
 import React from 'react'
 import './details.css'
 import DetailsBanner from './detailsBanner/DetailsBanner'
-import Trending from '../home/trending/Trending'
-import TopRated from '../home/TopRated/TopRated'
 import FetchData from '../../FetchData/FetchData'
 import { useParams } from 'react-router-dom'
 import CastSection from './CastSection/CastSection'
