@@ -5,7 +5,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import noPoster from '../../../assets/no-poster.png'
 
 const CastSection = ({ data = [], loading }) => {
-    console.log(data);
     const imgUrl = "https://image.tmdb.org/t/p/original";
 
     const Loader = ({ src, className = "" }) => (

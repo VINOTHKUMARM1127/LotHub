@@ -6,6 +6,8 @@ import TopRated from '../home/TopRated/TopRated'
 import FetchData from '../../FetchData/FetchData'
 import { useParams } from 'react-router-dom'
 import CastSection from './CastSection/CastSection'
+import Similar from './Recomandation/Similar'
+import Recommendation from './Recomandation/Recommendation'
 
 const details = () => {
   const {mediatype, id} = useParams()
@@ -15,8 +17,8 @@ const details = () => {
     <>
       <DetailsBanner/>
       <CastSection data={cast?.cast} loading={castloading}/>
-      <Trending />
-      <TopRated />
+      <Similar />
+      <Recommendation />
     </>
   )
 }
