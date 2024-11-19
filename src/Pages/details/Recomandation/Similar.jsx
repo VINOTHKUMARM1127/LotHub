@@ -12,16 +12,14 @@ const Similar = () => {
 
     return (
 
-        <div className="carouselSection">
-            <div className="box">
-                <span className="Title">{title}</span>
-            </div>
+        
             <Card
+                title={title}
                 data={data?.results}
                 loading={loading}
                 endpoint={mediatype}
             />
-        </div>
+        
     );
 };
 

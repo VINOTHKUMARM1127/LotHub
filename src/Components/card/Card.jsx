@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-const Card = ({ data, loading, endpoint }) => {
+const Card = ({ data, loading, endpoint, title }) => {
   const listRef = useRef(null);
   const navigate = useNavigate();
   const imgUrl = "https://image.tmdb.org/t/p/original";
@@ -37,6 +37,7 @@ const Card = ({ data, loading, endpoint }) => {
 
   return (
     <>
+    {title && <div className="display-text">{title}</div>}
       <div className="card">
         <div className="but">
           <div>

@@ -8,16 +8,14 @@ const Recommendation = () => {
     const { data, loading } = FetchData(`/${mediatype}/${id}/recommendations`)
     return (
 
-        <div className="carouselSection">
-            <div className="box">
-                <span className="Title">Recommendations</span>
-            </div>
+       
             <Card
+            title='Recommendations'
                 data={data?.results}
                 loading={loading}
                 endpoint={mediatype}
             />
-        </div>
+        
     )
 }
 
