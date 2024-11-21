@@ -20,18 +20,11 @@ const heroBanner = () => {
     }
   }
   const searchQuery = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault(); 
-      event.stopPropagation();
-  
-      if (query.trim().length > 0) {
-        navigate(`/search/${query.trim()}`);
-        setShowSearch(false);
-      }
+    if (event.key === "Enter" && query.length > 0) {
+      navigate(`/search/${query}`);
+      setShowSearch(false);
     }
   };
-  
-  
 
   return (
     <div className="heroBanner">

@@ -23,14 +23,9 @@ const Header = () => {
   };
 
   const searchQuery = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault(); 
-      event.stopPropagation();
-  
-      if (query.trim().length > 0) {
-        navigate(`/search/${query.trim()}`);
-        setShowSearch(false);
-      }
+    if (event.key === "Enter" && query.length > 0) {
+      navigate(`/search/${query}`);
+      setShowSearch(false);
     }
   };
   
@@ -97,7 +92,7 @@ const Header = () => {
             type="text"
             placeholder="Search for a movie or tv show...."
             onChange={(e) => setQuery(e.target.value)}
-            onKeyUp={searchQuery} autoComplete="off"
+            onKeyUp={searchQuery}
           />
           <VscChromeClose className="close-btn" onClick={() => setShowSearch(false)} />
         </div>
