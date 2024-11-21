@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 const Similar = () => {
     const { mediatype, id } = useParams()
     const { data, loading } = FetchData(`/${mediatype}/${id}/similar`);
-    console.log(data)
     const title = mediatype === "tv" ? "Similar TV Shows" : "Similar Movies";
 
     return (

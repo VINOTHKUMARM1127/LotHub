@@ -9,6 +9,7 @@
 }
 .cast-box{
     min-width: 220px;
+    max-width: 220px;
     align-items: center;
 }
 .caspic{

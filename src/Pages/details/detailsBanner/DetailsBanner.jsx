@@ -11,6 +11,7 @@ const DetailsBanner = () => {
 
     const { mediatype, id } = useParams();
     const { data, loading } = FetchData(`/${mediatype}/${id}`);
+    console.log(data)
     const imgUrl = "https://image.tmdb.org/t/p/original";
     const formatDate = (dateString) => {
         const options = { year: "numeric", month: "short", day: "numeric" };
@@ -44,11 +45,11 @@ const DetailsBanner = () => {
                                         {data.tagline}
                                     </div>
                                     <div className="genres">
-                                        {data.genres.map((item,key) =>{
-                                            return(
-                                            <div className="genre" key={(key)}>
-                                                {item.name}
-                                            </div>)
+                                        {data.genres.map((item, key) => {
+                                            return (
+                                                <div className="genre" key={(key)}>
+                                                    {item.name}
+                                                </div>)
                                         })}
                                     </div>
 
@@ -68,18 +69,29 @@ const DetailsBanner = () => {
                                                 {data.status}</span>
                                         </span>
                                         <span className="text-detail">
-                                        Release Date:
-                                         <span className="text-Det">
-                                            {data.release_date
-                                            ? formatDate(data.release_date)
-                                            : formatDate(data.first_air_date)
-                                        }</span>
+                                            Release Date:
+                                            <span className="text-Det">
+                                                {data.release_date
+                                                    ? formatDate(data.release_date)
+                                                    : formatDate(data.first_air_date)
+                                                }</span>
                                         </span>
                                         <span className="text-detail">
                                             Runtime:
                                             <span className="text-Det">
                                                 {toHoursAndMinutes(data.runtime)}</span>
                                         </span>
+                                    </div><hr />
+
+                                    <div className="infoItem">
+
+                                        <span className="text-detail">
+                                            Production:
+                                            <span className="text-Det">
+                                                {data.production_companies.map((item) => item.name).join(" , ")}
+                                            </span>
+                                        </span>
+
                                     </div><hr />
 
                                 </div>

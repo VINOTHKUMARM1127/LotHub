@@ -61,7 +61,7 @@ a:hover {
     width: 60vw;
     max-width: 100%;
     margin: 0px 20vw;
-    position: absolute;;
+    position: sticky;;
     z-index: 30;
     top: 65px;
     height: 60px;

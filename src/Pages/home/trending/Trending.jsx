@@ -7,7 +7,6 @@ import FetchData from "../../../FetchData/FetchData";
 
 const Trending = () => {
     const [endpoint, setEndpoint] = useState("day");
-
     const { data, loading } = FetchData(`/trending/movie/${endpoint}`);
 
     const onTabChange = (tab) => {
