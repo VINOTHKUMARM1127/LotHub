@@ -20,13 +20,17 @@ const heroBanner = () => {
     }
   }
   const searchQuery = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
-      event.preventDefault();
+    if (event.key === "Enter") {
+      event.preventDefault(); 
       event.stopPropagation();
-      navigate(`/search/${query}`);
-      setShowSearch(false);
+  
+      if (query.trim().length > 0) {
+        navigate(`/search/${query.trim()}`);
+        setShowSearch(false);
+      }
     }
   };
+  
   
 
   return (
@@ -45,7 +49,7 @@ const heroBanner = () => {
         <div className="searchInput">
           <input type="text" className='input-box' placeholder='Search for a Movie or TV show'
             onChange={(e) => setQuery(e.target.value)}
-            onKeyUp={searchQuery} />
+            onKeyUp={searchQuery} autoComplete="off"/>
           <button className='search-but' onClick={searchBut}>Search</button>
         </div>
       </div>

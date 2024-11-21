@@ -23,11 +23,14 @@ const Header = () => {
   };
 
   const searchQuery = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
-      event.preventDefault();
+    if (event.key === "Enter") {
+      event.preventDefault(); 
       event.stopPropagation();
-      navigate(`/search/${query}`);
-      setShowSearch(false);
+  
+      if (query.trim().length > 0) {
+        navigate(`/search/${query.trim()}`);
+        setShowSearch(false);
+      }
     }
   };
   
@@ -36,7 +39,7 @@ const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 10) {
+      if (currentScrollY > lastScrollY && currentScrollY > 0) {
         setShowHeader(false);
       } else {
         setShowHeader(true);
@@ -94,7 +97,7 @@ const Header = () => {
             type="text"
             placeholder="Search for a movie or tv show...."
             onChange={(e) => setQuery(e.target.value)}
-            onKeyUp={searchQuery}
+            onKeyUp={searchQuery} autoComplete="off"
           />
           <VscChromeClose className="close-btn" onClick={() => setShowSearch(false)} />
         </div>
