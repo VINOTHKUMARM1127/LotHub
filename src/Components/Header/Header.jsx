@@ -25,6 +25,7 @@ const Header = () => {
   const searchQuery = (event) => {
     if (event.key === "Enter" && query.length > 0) {
       event.preventDefault();
+      event.stopPropagation();
       navigate(`/search/${query}`);
       setShowSearch(false);
     }
