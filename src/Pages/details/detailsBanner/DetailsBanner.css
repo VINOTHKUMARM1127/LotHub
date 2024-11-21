@@ -1,16 +1,45 @@
-.detailsBanner{
-    width: 85%;
-    padding-top: 120px;
+.detailsBanner {
+    width: 100%;
+    padding-top: 110px;
     padding-bottom: 50px;
-    margin: 0px auto;
+    margin: 0 auto;
+    padding-left: 7em;
+    padding-right: 7em;
+    position: relative;
+    z-index: 1;
 }
-.details{
+
+.detailsBanner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1; 
+}
+.opacity-layer {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg,
+            rgba(4, 21, 45, 0) 0%,
+            #04152d 79.17%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.details {
+    position: relative;
     gap: 3em;
     display: flex;
     justify-content: space-around;
 }
 
-.posterImg{
+.posterImg {
     margin: 10px auto;
     width: 360px;
     display: block;
@@ -18,83 +47,99 @@
 }
 
 /* title text */
-.title{
+.right{
+    margin-top: 20px;
+}
+.title {
     font-size: 2.4em;
     font-weight: 200;
-    margin-bottom: 10px;
-}
-.subtitle{
-    font-weight: 100;
-    font-size: 1.2em;
-    font-style: italic;
-    opacity: 0.5;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
-.genres{
+.subtitle {
+    font-weight: 100;
+    font-size: 1.3em;
+    font-style: italic;
+    opacity: 0.5;
+    margin-bottom: 8px;
+}
+
+.genres {
     display: flex;
     margin: 10px 0px;
     padding: 0px;
 }
-.genre{
+
+.genre {
     font-size: .8em;
     margin-right: 8px;
     border-radius: .5em;
-    padding: 3px 6px;
+    margin-bottom: 5px;
+    padding: 4px 6px;
     background-color: rgb(255, 21, 138);
 }
-.heading{
+
+.heading {
     font-size: 1.5em;
     margin-bottom: 15px;
 }
-.description{
+
+.description {
     font-size: 1.2em;
     line-height: 1.3em;
     margin-bottom: 40px;
 }
-.text-detail{
+
+.text-detail {
     font-weight: 600;
     font-size: 1em;
     margin-right: 20px;
 }
-.text-Det{
+
+.text-Det {
     margin-left: 10px;
     font-weight: 100;
     opacity: 0.5;
 }
-hr{
+
+hr {
     margin-bottom: 20px;
     color: red;
     margin-top: 20px;
     max-height: 5px;
     background: blue;
 }
-@media (max-width: 1080px){
-    .text-detail{
+
+@media (max-width: 1080px) {
+    .text-detail {
         display: flex;
         flex-direction: row;
         margin: 10px 0px;
     }
 }
-@media (max-width: 768px){
-    .details{
+
+@media (max-width: 768px) {
+    .details {
         gap: 0em;
         flex-direction: column;
         justify-content: center;
     }
-    .posterImg{
+
+    .posterImg {
         width: 80%;
         display: block;
         border-radius: 12px;
         margin-bottom: 30px;
     }
-    .text-detail{
+
+    .text-detail {
         flex-direction: row;
-        
+
     }
 }
-@media (max-width: 360px){
-    .posterImg{
+
+@media (max-width: 360px) {
+    .posterImg {
         width: 90%;
         margin: 10px auto;
         display: block;

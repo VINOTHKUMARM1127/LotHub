@@ -25,13 +25,16 @@ const DetailsBanner = () => {
     const Loader = ({ src, className = "" }) => (
         <LazyLoadImage className={className} alt="" effect="blur" src={src} />
     );
+
+    const bgImg = imgUrl + data?.backdrop_path;
     return (
-        <div className="detailsBanner">
+        <div className="detailsBanner" style={{ "--bg-image": `url(${bgImg})`, }}>
+            <div className="opacity-layer"></div>
             {loading ? "loading" : (
                 <>
                     {!!data && (
                         <>
-                            <div className="details">
+                            <div className="details" >
                                 <div className="left">
                                     <LazyLoadImage className="posterImg" src={imgUrl + data.poster_path} />
                                 </div>
