@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-const MovieCard = ({ data, loading }) => {
+const MovieCard = ({ data, loading, mediaType }) => {
 
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const MovieCard = ({ data, loading }) => {
                 : NoPoster ;
                 return (
                     <div className="news" key={curItem.id} 
-                    onClick={() => navigate(`/${curItem.media_type || endpoint}/${curItem.id}`)}>
+                    onClick={() => navigate(`/${curItem.media_type || mediaType}/${curItem.id}`)}>
                       <div className="posterBlock">
                         <Loader
                           className="image"
