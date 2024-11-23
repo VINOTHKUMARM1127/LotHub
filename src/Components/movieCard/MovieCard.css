@@ -1,4 +1,4 @@
-.Card{
+.Card, .loadingSkeleton-card{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
@@ -7,15 +7,32 @@
     padding-top: 100px;
     border-radius: 28px;
 }
+ /* skeleton */
+ .loadingSkeleton {
+    width: 100%;
+    padding: 0px 1.5em;
+}
+
+.poster-Block {
+    border-radius: 12px;
+    max-width: 220px;
+    aspect-ratio: 1 / 1.5;
+    margin-bottom: 10px;
+}
+.title-ske {
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+.date-ske {
+    width: 75%;
+    height: 10px;
+}
 
 @media (max-width : 820px) {
-    .Card{
+    .Card, .loadingSkeleton-card{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
-        width: 90%;
-        margin: 0px auto;
-        padding-top: 100px;
-        border-radius: 28px;
+
     }
 }

@@ -34,6 +34,17 @@ const Card = ({ data, loading, endpoint, title }) => {
     <LazyLoadImage className={className} alt="" effect="blur" src={src} />
 );
 
+const skItem = () => {
+  return (
+      <div className="skeletonItem">
+          <div className="posterBlock skeleton"></div>
+          <div className="textBlock">
+              <div className="title-ske skeleton"></div>
+              <div className="date-ske skeleton"></div>
+          </div>
+      </div>
+  );
+};
 
   return (
     <>
@@ -52,7 +63,15 @@ const Card = ({ data, loading, endpoint, title }) => {
           </div>
         </div>
         {loading ? (
-          loading
+          (
+            <div className="loadingSkeleton">
+                {skItem()}
+                {skItem()}
+                {skItem()}
+                {skItem()}
+                {skItem()}
+            </div>
+        )
         ) : (
           <div className="list" ref={listRef}>
             {!data

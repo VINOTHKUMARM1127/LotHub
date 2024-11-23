@@ -11,13 +11,31 @@ const CastSection = ({ data = [], loading }) => {
         <LazyLoadImage className={className} alt="" effect="blur" src={src} />
     );
 
+    const skItem = () => {
+        return (
+            <div className="skeletonIt">
+                <div className="cast-img posterBlock skeleton"></div>
+                <div className="textBlock">
+                    <div className="title-ske skeleton"></div>
+                    <div className="date-ske skeleton"></div>
+                </div>
+            </div>
+        );
+      };
+
     return (
         <>
         <div className="Title-tex">Top Cast</div>
         <div className='Cast-component'>
             {loading ? (
-                "loading"
-            ) : (
+            <div className="loadingSkeleton-cast">
+                {skItem()}
+                {skItem()}
+                {skItem()}
+                {skItem()}
+                {skItem()}
+            </div>
+        ) : (
                 <>
                     {data.map((castItem, key) => {
                         let imgLink = castItem.profile_path

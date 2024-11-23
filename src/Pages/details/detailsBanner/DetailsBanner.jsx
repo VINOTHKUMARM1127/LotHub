@@ -30,13 +30,28 @@ const DetailsBanner = () => {
     return (
         <div className="detailsBanner" style={{ "--bg-image": `url(${bgImg})`, }}>
             <div className="opacity-layer"></div>
-            {loading ? "loading" : (
+            {loading ? (
+                <div className="detailsBannerSkeleton">
+                    
+                        <div className="left-side poster-pic skeleton"></div>
+                        <div className="right">
+                            <div className="row skeleton"></div>
+                            <div className="row skeleton"></div>
+                            <div className="row skeleton"></div>
+                            <div className="row skeleton"></div>
+                            <div className="row skeleton"></div>
+                            <div className="row skeleton"></div>
+                            <div className="row skeleton"></div>
+                        </div>
+                    
+                </div>
+            ) : (
                 <>
                     {!!data && (
                         <>
                             <div className="details" >
                                 <div className="left">
-                                    <LazyLoadImage className="posterImg" src={imgUrl + data.poster_path} />
+                                    <LazyLoadImage className="poster-pic" src={imgUrl + data.poster_path} />
                                 </div>
 
                                 <div className="right">
