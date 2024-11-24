@@ -52,6 +52,7 @@ const MovieCard = ({ data, loading, mediaType }) => {
               let imgUrl = curItem.poster_path
                 ? "https://image.tmdb.org/t/p/original" + curItem.poster_path
                 : NoPoster;
+              if (curItem.media_type === "person") return;
               return (
                 <div className="news" key={curItem.id}
                   onClick={() => navigate(`/${curItem.media_type || mediaType}/${curItem.id}`)}>
