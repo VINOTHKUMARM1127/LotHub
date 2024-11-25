@@ -11,9 +11,15 @@ const SearchResults = () => {
 
   return (
     <>
+      <div className="card">
+        {data?.results.map((item, index) => {
+          if (item.media_type === "person") return;
+          return (
+            <MovieCard key={index} data={item} loading={loading} />
+          );
+        })}
 
-      <MovieCard data={data?.results} loading={loading} />
-
+      </div>
     </>
   );
 };

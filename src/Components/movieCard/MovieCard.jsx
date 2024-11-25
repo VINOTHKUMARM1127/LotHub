@@ -17,70 +17,36 @@ const MovieCard = ({ data, loading, mediaType }) => {
     <LazyLoadImage className={className} alt="" effect="blur" src={src} />
   );
 
-  const skItem = () => {
-    return (
-      <div className="skeletonItem-mov">
-        <div className="poster-Block skeleton"></div>
-        <div className="textBlock">
-          <div className="title-ske skeleton"></div>
-          <div className="date-ske skeleton"></div>
-        </div>
-      </div>
-    );
-  };
+  let imgUrl = data.poster_path
+    ? "https://image.tmdb.org/t/p/original" + data.poster_path
+    : NoPoster;
 
+ 
   return (
     <>
-      {loading ? (
-        <div className="loadingSkeleton-card">
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-          {skItem()}
-        </div>
-      ) : (
-        <div className="Card" >
-          {!data
-            ? "No Result Found"
-            : data.map((curItem) => {
-              let imgUrl = curItem.poster_path
-                ? "https://image.tmdb.org/t/p/original" + curItem.poster_path
-                : NoPoster;
-              if (curItem.media_type === "person") return;
-              return (
-                <div className="news" key={curItem.id}
-                  onClick={() => navigate(`/${curItem.media_type || mediaType}/${curItem.id}`)}>
-                  <div className="poster-Block">
-                    <Loader
-                      className="image"
-                      src={imgUrl}
-                      alt=""
-                    />
-                  </div>
-                  <div className="content">
-                    <h5 className="title-text">
-                      {curItem.name || curItem.title}
-                    </h5>
-                    <p className="date">
-                      {curItem.release_date
-                        ? formatDate(curItem.release_date)
-                        : formatDate(curItem.first_air_date)}
-                    </p>
+        <div className="news" key={data.id}
+          onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}>
+          <div className="poster-Blk">
+            <Loader
+              className="image"
+              src={imgUrl}
+              alt=""
+            />
+          </div>
+          <div className="content-box">
+            <h5 className="title-text">
+              {data.name || data.title}
+            </h5>
+            <p className="date">
+              {data.release_date
+                ? formatDate(data.release_date)
+                : formatDate(data.first_air_date)}
+            </p>
 
-                  </div>
-                </div>
-              );
-            })}
+          </div>
         </div>
-      )}
 
-    </>
+      </>
   );
 };
 
