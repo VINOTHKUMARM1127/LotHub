@@ -11,7 +11,7 @@ const SearchResults = () => {
 
   return (
     <>
-      <div className="card">
+      <div className="card-com">
         {data?.results.map((item, index) => {
           if (item.media_type === "person") return;
           return (
