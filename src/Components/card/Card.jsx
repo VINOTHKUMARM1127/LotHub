@@ -4,6 +4,7 @@ import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import noPoster from '../../assets/no-poster.png'
 
 const Card = ({ data, loading, endpoint, title }) => {
   const listRef = useRef(null);
@@ -29,26 +30,26 @@ const Card = ({ data, loading, endpoint, title }) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
-  
+
   const Loader = ({ src, className = "" }) => (
     <LazyLoadImage className={className} alt="" effect="blur" src={src} />
-);
-
-const skItem = () => {
-  return (
-      <div className="skeletonItem">
-          <div className="posterBlock skeleton"></div>
-          <div className="textBlock">
-              <div className="title-ske skeleton"></div>
-              <div className="date-ske skeleton"></div>
-          </div>
-      </div>
   );
-};
+
+  const skItem = () => {
+    return (
+      <div className="skeletonItem">
+        <div className="posterBlock skeleton"></div>
+        <div className="textBlock">
+          <div className="title-ske skeleton"></div>
+          <div className="date-ske skeleton"></div>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <>
-    {title && <div className="display-text">{title}</div>}
+    <div className="card-com">
+      {title && <div className="display-text">{title}</div>}
       <div className="card">
         <div className="but">
           <div>
@@ -65,27 +66,32 @@ const skItem = () => {
         {loading ? (
           (
             <div className="loadingSkeleton">
-                {skItem()}
-                {skItem()}
-                {skItem()}
-                {skItem()}
-                {skItem()}
+              {skItem()}
+              {skItem()}
+              {skItem()}
+              {skItem()}
+              {skItem()}
             </div>
-        )
+          )
         ) : (
           <div className="list" ref={listRef}>
             {!data
               ? ""
               : data.map((curItem) => {
                 return (
-                  <div className="news" key={curItem.id} 
-                  onClick={() => navigate(`/${curItem.media_type || endpoint}/${curItem.id}`)}>
+                  <div className="news" key={curItem.id}
+                    onClick={() => navigate(`/${curItem.media_type || endpoint}/${curItem.id}`)}>
                     <div className="posterBlock">
                       <Loader
                         className="image"
-                        src={imgUrl + curItem.poster_path}
+                        src={curItem.poster_path
+                          ? imgUrl + curItem.poster_path
+                          : curItem.profile_path
+                            ? imgUrl + curItem.profile_path
+                            : noPoster}
                         alt=""
                       />
+
                     </div>
                     <div className="content">
                       <h5 className="title-text">
@@ -94,8 +100,11 @@ const skItem = () => {
                       <p className="date">
                         {curItem.release_date
                           ? formatDate(curItem.release_date)
-                          : formatDate(curItem.first_air_date)}
+                          : curItem.first_air_date
+                            ? formatDate(curItem.first_air_date)
+                            : curItem.character}
                       </p>
+
 
                     </div>
                   </div>
@@ -104,9 +113,8 @@ const skItem = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
 export default Card;
- 

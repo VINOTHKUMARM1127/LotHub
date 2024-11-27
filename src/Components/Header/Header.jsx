@@ -28,7 +28,7 @@ const Header = () => {
       setShowSearch(false);
     }
   };
-  
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +50,7 @@ const Header = () => {
   return (
     <>
       <nav className={showHeader ? "" : "hide"}>
-        <h1>
+        <h1 onClick={() => navigate("/")}>
           LOT<span className="redd">HUB</span>
         </h1>
         <div className="MenuItems">
@@ -75,10 +75,10 @@ const Header = () => {
         {mobileMenu && (
           <div className="mobileView">
             <ul className="menuItems">
-              <li className="menuItem" onClick={() => navigate("/explore/movie")}>
+              <li className="menuItem" onClick={() => { toggleMobileMenu(); navigate("/explore/movie") }}>
                 MOVIES
               </li>
-              <li className="menuItem" onClick={() => navigate("/explore/tv")}>
+              <li className="menuItem" onClick={() => { toggleMobileMenu(); navigate("/explore/tv") }}>
                 TV SHOWS
               </li>
             </ul>

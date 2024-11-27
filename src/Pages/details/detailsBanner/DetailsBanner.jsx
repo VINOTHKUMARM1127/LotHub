@@ -11,7 +11,6 @@ const DetailsBanner = () => {
 
     const { mediatype, id } = useParams();
     const { data, loading } = FetchData(`/${mediatype}/${id}`);
-    console.log(data)
     const imgUrl = "https://image.tmdb.org/t/p/original";
     const formatDate = (dateString) => {
         const options = { year: "numeric", month: "short", day: "numeric" };

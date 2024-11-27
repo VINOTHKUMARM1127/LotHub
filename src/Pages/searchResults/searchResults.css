@@ -1,4 +1,14 @@
-.card-com {
+.card-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 90%;
+    margin: 0px auto;
+    padding-top: 100px;
+    border-radius: 28px;
+}
+.loadingSke {
+    max-height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
@@ -8,9 +18,20 @@
     border-radius: 28px;
 }
 
+.loading-text{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 50% 0px;
+}
+
 @media (max-width : 820px) {
-    .card-com {
-        display: grid;
+    .card-box {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .loadingSke {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
+
+
+

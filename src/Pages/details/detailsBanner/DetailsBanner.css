@@ -42,7 +42,7 @@
 
 .poster-pic {
     margin: 10px auto;
-    width: 360px;
+    width: 100%;
     display: block;
     border-radius: 12px;
     aspect-ratio: 1/1.5;

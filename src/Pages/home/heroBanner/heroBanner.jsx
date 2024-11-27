@@ -25,6 +25,9 @@ const heroBanner = () => {
       setShowSearch(false);
     }
   };
+  const Loader = ({ src, className = "" }) => (
+    <LazyLoadImage className={className} alt="" effect="blur" src={src} />
+  );
 
   return (
     <div className="heroBanner">
@@ -39,12 +42,12 @@ const heroBanner = () => {
         <span className="title">Welcome</span>
         <span className="subTitle">Millions of movies, TV shows and people to discover.
           Explore now</span>
-        <div className="searchInput">
+        {/* <div className="searchInput">
           <input type="text" className='input-box' placeholder='Search for a Movie or TV show'
             onChange={(e) => setQuery(e.target.value)}
             onKeyUp={searchQuery} autoComplete="off"/>
           <button className='search-but' onClick={searchBut}>Search</button>
-        </div>
+        </div> */}
       </div>
 
     </div>

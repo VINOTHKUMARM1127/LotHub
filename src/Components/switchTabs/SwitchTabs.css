@@ -7,6 +7,7 @@
 .tabButton {
     color: black;
     display: inline-block;
+    text-transform: uppercase;
     padding: 10px 20px;
     margin: 0px;
     font-size: 1em;
