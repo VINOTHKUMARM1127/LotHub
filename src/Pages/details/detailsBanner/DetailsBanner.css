@@ -18,6 +18,7 @@
     bottom: 0;
     background-image: var(--bg-image);
     background-size: cover;
+    background-position: center;
     opacity: 0.1;
     z-index: -1;
 }
@@ -41,11 +42,16 @@
 }
 
 .poster-pic {
-    margin: 10px auto;
+    border-radius: 1rem;
+    width: 45%;
+    aspect-ratio: 1 / 1.5;
+    margin-bottom: 10px;
+}
+
+.poster {
+    border-radius: 1rem;
     width: 100%;
-    display: block;
-    border-radius: 12px;
-    aspect-ratio: 1/1.5;
+    max-height: 100%;
 }
 
 /* title text */
@@ -90,7 +96,14 @@
 .description {
     font-size: 1.2em;
     line-height: 1.3em;
-    margin-bottom: 40px;
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: .9em;
 }
 
 .text-detail {
@@ -169,7 +182,7 @@ hr {
         width: 300;
         display: block;
         border-radius: 12px;
-        margin-bottom: 30px;
+        margin: 0px auto 30px auto;
     }
 
     .text-detail {
@@ -190,5 +203,9 @@ hr {
         margin: 10px auto;
         display: block;
         border-radius: 12px;
+    }
+
+    .title {
+        font-size: 2em;
     }
 }

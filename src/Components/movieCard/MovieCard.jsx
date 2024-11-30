@@ -6,7 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const MovieCard = ({ data, loading  }) => {
-  const { mediaType } = useParams();
+  const { mediatype } = useParams();
   const navigate = useNavigate();
 
   const formatDate = (dateString) => {
@@ -25,7 +25,7 @@ const MovieCard = ({ data, loading  }) => {
   return (
     <>
         <div className="news" key={data.id}
-          onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}>
+          onClick={() => navigate(`/${data.media_type || mediatype}/${data.id}`)}>
           <div className="posterBloc">
             <img
               className="imag"

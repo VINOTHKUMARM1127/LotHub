@@ -32,7 +32,7 @@ const DetailsBanner = () => {
             {loading ? (
                 <div className="detailsBannerSkeleton">
                     
-                        <div className="left-side poster-pic skeleton"></div>
+                        <div className="poster-pic skeleton"></div>
                         <div className="right">
                             <div className="row skeleton"></div>
                             <div className="row skeleton"></div>
@@ -49,8 +49,8 @@ const DetailsBanner = () => {
                     {!!data && (
                         <>
                             <div className="details" >
-                                <div className="left">
-                                    <LazyLoadImage className="poster-pic" src={imgUrl + data.poster_path} />
+                                <div className="poster-pic">
+                                    <Loader className="poster" src={imgUrl + data.poster_path} />
                                 </div>
 
                                 <div className="right">

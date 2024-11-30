@@ -9,12 +9,12 @@ const Explore = () => {
   const [data, setData] = useState(null);
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
-  const { mediaType } = useParams();
+  const { mediatype } = useParams();
 
 
   const fetchInitialData = () => {
     setLoading(true);
-    fetchDataFromApi(`/discover/${mediaType}?page=1`).then((res) => {
+    fetchDataFromApi(`/discover/${mediatype}?page=1`).then((res) => {
       setData(res);
       setPageNum(2);
       setLoading(false);
@@ -22,7 +22,7 @@ const Explore = () => {
   };
 
   const fetchNextPageData = () => {
-    fetchDataFromApi(`/discover/${mediaType}?page=${pageNum}`).then((res) => {
+    fetchDataFromApi(`/discover/${mediatype}?page=${pageNum}`).then((res) => {
       if (data?.results) {
         setData({
           ...data,
@@ -38,7 +38,7 @@ const Explore = () => {
   useEffect(() => {
     setPageNum(1);
     fetchInitialData();
-  }, [mediaType]);
+  }, [mediatype]);
 
   const skItem = () => {
     return (
