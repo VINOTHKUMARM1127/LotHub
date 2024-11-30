@@ -1,22 +1,18 @@
 .card-box {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    width: 90%;
-    padding-top: 100px;
-    border-radius: 28px;
-    margin: 0px auto;
-}
-.loadingSke {
-    min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin: 0px auto;
     gap: 20px;
     width: 90%;
     padding-top: 100px;
-    border-radius: 28px;
+}
+.loadingSke {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     margin: 0px auto;
+    gap: 20px;
+    width: 90%;
+    padding-top: 100px;
 }
 
 .loading-text{

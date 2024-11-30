@@ -37,7 +37,6 @@
 }
 
 .news {
-    min-width: 220px;
     align-items: center;
     max-width: 220px;
 }
@@ -182,7 +181,7 @@
     }
 
     .news {
-        min-width: 8em;
+        max-width: 140px;
     }
 
     .but {
