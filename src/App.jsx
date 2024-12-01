@@ -1,18 +1,25 @@
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import { Routes, Route } from "react-router-dom"
-
-import Header from './Components/Header/Header.jsx'
-import Footer from './Components/Footer/Footer.jsx'
-import Home from './Pages/home/home.jsx'
-import Details from './Pages/details/details.jsx'
-import SearchResults from './Pages/searchResults/searchresults.jsx'
-import Explore from './Pages/explore/explore.jsx'
-import PagenotFound from './Pages/404/pagenotFound.jsx'
-import ActorDet from "./Pages/details/detailsBanner/ActorDet.jsx"
-
-
+import Header from './Components/Header/Header.jsx';
+import Footer from './Components/Footer/Footer.jsx';
+import Home from './Pages/home/home.jsx';
+import Details from './Pages/details/details.jsx';
+import SearchResults from './Pages/searchResults/searchresults.jsx';
+import Explore from './Pages/explore/explore.jsx';
+import PagenotFound from './Pages/404/pagenotFound.jsx';
+import ActorDet from "./Pages/details/detailsBanner/ActorDet.jsx";
 
 const App = () => {
+  const location = useLocation();
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [location]); 
 
   return (
     <>
@@ -23,11 +30,11 @@ const App = () => {
         <Route path="/search/:query" element={<SearchResults />} />
         <Route path="/explore/:mediatype" element={<Explore />} />
         <Route path="*" element={<PagenotFound />} />
-        <Route path="/undefined/:id" element={<ActorDet/>} />
+        <Route path="/undefined/:id" element={<ActorDet />} />
       </Routes>
       <Footer />
-      </>
-  )
-}
+    </>
+  );
+};
 
-export default App
+export default App;

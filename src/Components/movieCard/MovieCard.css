@@ -5,7 +5,10 @@
     height: 100%;
     z-index: 1;
 }
-
+.new{
+    align-items: center;
+    max-width: 220px;
+}
 .posterBloc {
     border-radius: 12px;
     width: 100%;
@@ -17,5 +20,7 @@
     .posterBloc {
         margin-bottom: 15px;
     }
-
+    .new{
+        max-width: 180px;
+    }
 }

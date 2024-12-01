@@ -24,7 +24,7 @@ const MovieCard = ({ data, loading  }) => {
 
   return (
     <>
-        <div className="news" key={data.id}
+        <div className="new" key={data.id}
           onClick={() => navigate(`/${data.media_type || mediatype}/${data.id}`)}>
           <div className="posterBloc">
             <img
