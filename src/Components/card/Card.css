@@ -1,5 +1,5 @@
 .card-com {
-    min-height: 300px;
+    min-height: 400px;
     margin-bottom: 20px;
 }
 
@@ -125,7 +125,7 @@
     border-radius: 12px;
     width: 220px;
     aspect-ratio: 1 / 1.5;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 .textBlock {
@@ -149,7 +149,8 @@
 
 @media (max-width:820px) {
     .card-com {
-        min-height: 20vh;
+        min-height: 30vh;
+        margin-bottom: 20px;
     }
 
     .box {
@@ -183,7 +184,7 @@
     }
 
     .news {
-        max-width: 140px;
+        max-width: 160px;
     }
 
     .but {
